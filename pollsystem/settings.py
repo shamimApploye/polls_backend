@@ -73,8 +73,11 @@ WSGI_APPLICATION = 'pollsystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'verceldb',
+        'HOST': 'ep-holy-fire-a4iozml5-pooler.us-east-1.aws.neon.tech',
+        'USER': 'default',
+        'PASSWORD': 'HeFJ6pz0EXUM',
     }
 }
 
