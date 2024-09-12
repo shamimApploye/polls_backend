@@ -19,5 +19,6 @@ from . import views
 urlpatterns = [
     path('', views.say_hello),
     path('api-auth/', include('rest_framework.urls')),
-    path('users/', include('users.urls'))
+    path('users/', include('users.urls')),
+    path('polls/', include('polls.urls')),
 ]
