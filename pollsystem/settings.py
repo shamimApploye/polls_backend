@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'users',
     "polls",
 ]
@@ -48,6 +49,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+# Allow all origins (not recommended for production)
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Or specify allowed origins (recommended)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # frontend URL
 ]
 
 AUTH_USER_MODEL = 'users.User'
