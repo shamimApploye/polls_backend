@@ -1,10 +1,14 @@
 from rest_framework import serializers
 from polls.models import Question, Choice
 
+
 class ChoiceSerializer(serializers.ModelSerializer):
+    question_id = serializers.IntegerField(source='question.id', read_only=True)
+
     class Meta:
         model = Choice
-        fields = ['id', 'choice_text', 'votes']
+        fields = ['id', 'choice_text', 'votes', 'question_id']
+
 
 class QuestionSerializer(serializers.ModelSerializer):
     choices = ChoiceSerializer(many=True, required=False)

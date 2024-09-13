@@ -73,6 +73,12 @@ class Vote(APIView):
     return Response(serializer.data)
 
 
+class ChoiceList(APIView):
+  def get(self, request, format=None):
+    choices = Choice.objects.all()
+    serializer = ChoiceSerializer(choices, many=True)
+    return Response(serializer.data)
+
 class ChoiceDetail(APIView):
   def get_object(self, pk):
     try:
